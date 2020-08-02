@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.1.106:3306/jpa
+#    url: jdbc:mysql://192.168.1.106:3306/mybatis   DruidMybatisConfig
+#    url: jdbc:mysql://192.168.1.106:3306/jdbc  DruidConfig
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    schema:
+#    - classpath:sql/department.sql  启动应用就会创建相应的表
+#    - classpath:sql/employee.sql
+    initialization-mode: always
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  jpa:
+    hibernate:
+#    更新或者创建数据表结构
+      ddl-auto: update
+#    控制台显示SQL
+    show-sql: true
+logging:
+  level: info
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+
+
+
+
+
+
+
+

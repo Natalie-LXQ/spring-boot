@@ -13,5 +13,9 @@ public class NiuKe {
         System.out.println(s.equals(9));
         System.out.println(s.equals(t));
         System.out.println(s.equals(new Integer(9)));
+        int i =0;
+        int j = i++;
+        System.out.println(j);
+        System.out.println(i);
     }
 }
